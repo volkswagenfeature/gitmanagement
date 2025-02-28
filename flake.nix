@@ -4,11 +4,12 @@
   };
   outputs = {
     nixpkgs,
-    config,
+    ...
   }:
   let
-    system = "x86-64_linux";
+    system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
+  in
   {
     apps.${system} = {
       manageSecrets = {
@@ -23,5 +24,5 @@
         "${manageSecretsApp}/bin/manageSecrets";
       };
     };
-  }
+  };
 }
